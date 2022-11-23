@@ -1,0 +1,11 @@
+﻿@page
+@model FlightMVC.Pages.PagesDemo.IndexModel
+@{
+}
+
+<h3>@Model.Message</h3>
+
+<form method="POST">
+    <input asp-for="Message" />
+    <input id="submit" type="submit" value="Go" />
+</form>

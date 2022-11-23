@@ -1,0 +1,12 @@
+﻿@model FlightMVC.Utilities.ConfigData
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>From appsettings.json:</h3>
+
+<div>
+    <label>@Model.Question</label>
+    <label><b>@Model.Answer</b></label>
+</div>

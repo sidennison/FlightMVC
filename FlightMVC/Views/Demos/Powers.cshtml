@@ -1,0 +1,33 @@
+﻿@model IEnumerable<IntegerPowersVM>
+
+@{
+    ViewData["Title"] = "Power Table";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <table class="table">
+        <thead>
+            <tr><th>Number</th><th>Square</th><th>Cube</th></tr>
+        </thead>
+        <tbody>
+            @for (int i = 1; i <= 10; i++)
+            {
+                <tr><td>@i</td><td>@Math.Pow(i, 2)</td><td>@Math.Pow(i, 3)</td></tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div>
+    <table class="table">
+        <thead>
+            <tr><th>Number</th><th>Square</th><th>Cube</th></tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr><td>@item.Number</td><td>@item.Square</td><td>@item.Cube</td></tr>
+            }
+        </tbody>
+    </table>
+</div>
