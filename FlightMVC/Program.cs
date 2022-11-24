@@ -50,6 +50,7 @@ namespace FlightMVC
 
             builder.Services.AddTransient<IPassengersRepository, PassengersRepository>();
             builder.Services.AddTransient<MyExceptionFilterAttribute>();
+            builder.Services.AddTransient<MyActionFilterAttribute>();
 
             builder.Services.Configure<ConfigData>(builder.Configuration.GetSection("ConfigData"));
 
@@ -78,8 +79,15 @@ namespace FlightMVC
             app.UseAuthorization();
 
             app.MapControllerRoute(
+                name: "defaultareas",
+                pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+                );
+
+            app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+                pattern: "{controller=Home}/{action=Index}/{id?}"
+                );
+
             app.MapRazorPages();
 
             //CreateUserRoles(builder.Services.BuildServiceProvider()).Wait();  // Nasty hack, because the next line threw up unepectedly:

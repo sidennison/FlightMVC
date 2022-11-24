@@ -10,6 +10,8 @@
 <div>
     <h4>Passenger Details</h4>
     @Html.DisplayFor(model => model)
+    <vc:flight flight-no="@Model.FlightNo"></vc:flight>
+    @await Component.InvokeAsync("Flight", new {flightNo=@Model.FlightNo})
     @*<hr />
     <dl class="row">
         <dt class = "col-sm-2">

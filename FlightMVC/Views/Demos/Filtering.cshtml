@@ -1,0 +1,7 @@
+﻿@inject ILoggerFactory loggerFactory
+@{
+    var logger = loggerFactory.CreateLogger("View");
+    logger.LogInformation("Within View");
+}
+
+<h1>Filtering</h1>

@@ -1,0 +1,41 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<div>
+    <textarea id="info"></textarea>
+    <button onclick="getinfo()">Get Info</button>
+    <ol id="thelist"></ol>
+    <button onclick="getlist()">Get List</button>
+    <button onclick="postFlight()">Post New</button>
+</div>
+
+
+
+@section Scripts {
+    <script type="text/javascript">
+        function getinfo() {
+            $("#info").load("/api/flightsapi");
+        }
+
+        function getlist() {
+            $.getJSON("/api/flightsapi").then(function (result) {
+                for (var i=0; i<result.length; i++) {
+                    $("#thelist").append("<li>" + result[i].flightNo + "</li>");
+                }
+            });
+        }
+
+        function postFlight() {
+            $.ajax({
+                "url": "/api/flightsapi",
+                "method": "POST",
+                "contentType": "application/json;charset=utf-8",
+                "data": JSON.stringify({ "flightNo": "ba1235", "origin": "LAX", "destination": "LHR" }),
+                "success":function (result, status){alert(status)}
+            });
+        }
+    </script>
+}

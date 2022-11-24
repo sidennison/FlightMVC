@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Areas\FlightsInfo\Data\" />
     <Folder Include="Views\Shared\EditorTemplates\" />
   </ItemGroup>
 

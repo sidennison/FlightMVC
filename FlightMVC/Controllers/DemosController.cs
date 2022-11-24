@@ -1,4 +1,5 @@
-﻿using FlightMVC.Models;
+﻿using FlightMVC.Filters;
+using FlightMVC.Models;
 using MessagePack.Formatters;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -11,7 +12,7 @@ namespace FlightMVC.Controllers
         [HttpGet("pass")]
         public IActionResult TagDemo()
         {
-            return View(new PassengerDetails("Graham", 24));
+            return View(new PassengerDetails("Graham", 24, "ba1234"));
         }
 
         [HttpGet("sent")]
@@ -94,6 +95,21 @@ namespace FlightMVC.Controllers
         public string Message()
         {
             return "Hi";
+        }
+
+        [HttpGet("Filtering")]
+        [ServiceFilter(typeof(MyActionFilterAttribute))]
+        public IActionResult Filtering([FromServices]ILoggerFactory loggerFactory)
+        {
+            var logger = loggerFactory.CreateLogger("Action");
+            logger.LogInformation("Filtering");
+            return View();
+        }
+
+        [HttpGet("FlightService")]
+        public IActionResult FlightService()
+        {
+            return View();
         }
     }
 }

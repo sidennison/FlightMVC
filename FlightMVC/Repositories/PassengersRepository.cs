@@ -10,7 +10,7 @@ namespace FlightMVC.Repositories
         {
             for (int i = 0; i < 10; i++)
             {
-                _passengers.Add(new PassengerDetails($"George_{i}", i+10));
+                _passengers.Add(new PassengerDetails($"George_{i}", i+10, "ba1234"));
             }
         }
 

@@ -14,8 +14,8 @@ namespace FlightMVC.Controllers
 
         static PassengersController()
         {
-            _passengers.Add(new PassengerDetails("Fred", 23));
-            _passengers.Add(new PassengerDetails("Graham", 15));
+            _passengers.Add(new PassengerDetails("Fred", 23, "ba1234"));
+            _passengers.Add(new PassengerDetails("Graham", 15, "ba1234"));
         }
 
         // GET: PassengersController
